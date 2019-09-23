@@ -2,6 +2,7 @@ import React from 'react';
 import Draft, {Editor, EditorState, ContentState, RichUtils} from 'draft-js';
 import {StyleButton} from '../../components/Editor/StyleButton';
 import {POEM} from "../../commons/constants/poem";
+import {XizhiSidebar} from '../../components/Editor/XizhiSidebar';
 
 const BLOCK_TYPES = [
   {label: 'H1', style: 'header-one'},
@@ -117,23 +118,26 @@ class HomePage extends React.Component <{}, any> {
     }
 
     return (
-      <div className="RichEditor-root">
-        <div className="xizhi-toolbar">
-          <InlineStyleControls
-            editorState={editorState}
-            onToggle={this.toggleInlineStyle.bind(this)}
-          />
-          <BlockStyleControls
-            editorState={editorState}
-            onToggle={this.toggleBlockType.bind(this)}
-          />
+      <div className="Xizhi-container">
+        <div className="XizhiEditor-root">
+          <div className="xizhi-toolbar">
+            <InlineStyleControls
+              editorState={editorState}
+              onToggle={this.toggleInlineStyle.bind(this)}
+            />
+            <BlockStyleControls
+              editorState={editorState}
+              onToggle={this.toggleBlockType.bind(this)}
+            />
+          </div>
+          <div className={className} onClick={this.focus}>
+            <Editor
+              editorState={editorState}
+              blockStyleFn={this.getBlockStyle.bind(this)}
+              onChange={this.onChange}/>
+          </div>
         </div>
-        <div className={className} onClick={this.focus}>
-          <Editor
-            editorState={editorState}
-            blockStyleFn={this.getBlockStyle.bind(this)}
-            onChange={this.onChange}/>
-        </div>
+        <XizhiSidebar editorState={editorState}/>
       </div>
     )
   };
