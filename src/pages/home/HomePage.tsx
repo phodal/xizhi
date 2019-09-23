@@ -2,34 +2,25 @@ import React, {Component} from 'react';
 import Draft, {Editor, EditorState, RichUtils} from 'draft-js';
 import {StyleButton} from '../../components/Editor/StyleButton';
 
-interface HomeState {
-  editorState: EditorState
-}
-
 const BLOCK_TYPES = [
   {label: 'H1', style: 'header-one'},
   {label: 'H2', style: 'header-two'},
   {label: 'H3', style: 'header-three'},
-  {label: 'H4', style: 'header-four'},
-  {label: 'H5', style: 'header-five'},
-  {label: 'H6', style: 'header-six'},
-  {label: 'Blockquote', style: 'blockquote'},
-  {label: 'UL', style: 'unordered-list-item'},
-  {label: 'OL', style: 'ordered-list-item'},
-  {label: 'Code Block', style: 'code-block'},
+  {label: 'Quote', style: 'blockquote'},
+  {label: "Bullets", style: "unordered-list-item"},
+  {label: "Numbers", style: "ordered-list-item"}
 ];
 
 const INLINE_STYLES = [
   {label: 'Bold', style: 'BOLD'},
-  {label: 'Italic', style: 'ITALIC'},
-  {label: 'Underline', style: 'UNDERLINE'},
-  {label: 'Monospace', style: 'CODE'},
+  {label: 'Italic', style: 'ITALIC'}
 ];
+
 const InlineStyleControls = (props: any) => {
   const currentStyle = props.editorState.getCurrentInlineStyle();
 
   return (
-    <div className="RichEditor-controls">
+    <div className="xizhi-inline-controls">
       {INLINE_STYLES.map((type) =>
         <StyleButton
           key={type.label}
@@ -51,7 +42,7 @@ const BlockStyleControls = (props: any) => {
     .getBlockForKey(selection.getStartKey())
     .getType();
   return (
-    <div className="RichEditor-controls">
+    <div className="xizhi-block-controls">
       {BLOCK_TYPES.map((type) =>
         <StyleButton
           key={type.label}
@@ -124,13 +115,13 @@ class HomePage extends React.Component <{}, any> {
 
     return (
       <div className="RichEditor-root">
-        <BlockStyleControls
-          editorState={editorState}
-          onToggle={this.toggleBlockType.bind(this)}
-        />
         <InlineStyleControls
           editorState={editorState}
           onToggle={this.toggleInlineStyle.bind(this)}
+        />
+        <BlockStyleControls
+          editorState={editorState}
+          onToggle={this.toggleBlockType.bind(this)}
         />
         <div className={className} onClick={this.focus}>
           <Editor
