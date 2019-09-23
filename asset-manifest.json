@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/xizhi/static/css/main.9a5c1625.chunk.css",
+    "main.js": "/xizhi/static/js/main.4959d999.chunk.js",
+    "main.js.map": "/xizhi/static/js/main.4959d999.chunk.js.map",
+    "runtime~main.js": "/xizhi/static/js/runtime~main.a3290b4f.js",
+    "runtime~main.js.map": "/xizhi/static/js/runtime~main.a3290b4f.js.map",
+    "static/css/2.e8d046a2.chunk.css": "/xizhi/static/css/2.e8d046a2.chunk.css",
+    "static/js/2.d2786c67.chunk.js": "/xizhi/static/js/2.d2786c67.chunk.js",
+    "static/js/2.d2786c67.chunk.js.map": "/xizhi/static/js/2.d2786c67.chunk.js.map",
+    "index.html": "/xizhi/index.html",
+    "precache-manifest.a2c925fd03214a400fe10c415630ebcd.js": "/xizhi/precache-manifest.a2c925fd03214a400fe10c415630ebcd.js",
+    "service-worker.js": "/xizhi/service-worker.js",
+    "static/css/2.e8d046a2.chunk.css.map": "/xizhi/static/css/2.e8d046a2.chunk.css.map",
+    "static/css/main.9a5c1625.chunk.css.map": "/xizhi/static/css/main.9a5c1625.chunk.css.map"
+  }
+}
