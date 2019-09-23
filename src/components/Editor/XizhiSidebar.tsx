@@ -40,10 +40,7 @@ export class XizhiSidebar extends React.Component<any, any> {
   }
 
   render() {
-    console.log(this.props);
     const editorState: EditorState = this.props.editorState;
-    let currentContent = editorState.getCurrentContent();
-    console.log(currentContent.getPlainText());
     return (
       <div className="xizhi-sidebar">
         <span>Toolbar</span>
