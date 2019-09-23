@@ -20,17 +20,17 @@ class NavBar extends Component {
   render() {
     return (
       <Router>
-        <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
-          <Menu.Item key="app">
-            <Link to="/"><Icon type="home"/> Home</Link>
-          </Menu.Item>
-          <Menu.Item key="about">
-            <Link to="/about"><Icon type="question"/>About</Link>
-          </Menu.Item>
-          <Menu.Item key="todo">
-            <Link to="/todo"><Icon type="todo"/>Todo</Link>
-          </Menu.Item>
-        </Menu>
+        {/*<Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">*/}
+        {/*  <Menu.Item key="app">*/}
+        {/*    <Link to="/"><Icon type="home"/> Home</Link>*/}
+        {/*  </Menu.Item>*/}
+        {/*  <Menu.Item key="about">*/}
+        {/*    <Link to="/about"><Icon type="question"/>About</Link>*/}
+        {/*  </Menu.Item>*/}
+        {/*  <Menu.Item key="todo">*/}
+        {/*    <Link to="/todo"><Icon type="todo"/>Todo</Link>*/}
+        {/*  </Menu.Item>*/}
+        {/*</Menu>*/}
 
         <Route exact path="/" component={HomePage}/>
         <Route exact path="/about" component={AboutPage}/>

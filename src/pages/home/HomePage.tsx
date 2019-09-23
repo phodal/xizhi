@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import Draft, {Editor, EditorState, RichUtils} from 'draft-js';
+import React from 'react';
+import {Editor, EditorState, RichUtils} from 'draft-js';
 import {StyleButton} from '../../components/Editor/StyleButton';
 
 const BLOCK_TYPES = [
