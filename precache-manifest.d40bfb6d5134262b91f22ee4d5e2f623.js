@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4704977c7da925dc52be8dccbb0fd2e7",
+    "revision": "9551712b3b05eeaa75a183966dc4cf40",
     "url": "/xizhi/index.html"
   },
   {
-    "revision": "268cad6d3dc76d86b120",
+    "revision": "d2c4eaed02748c5774f2",
     "url": "/xizhi/static/css/2.e8d046a2.chunk.css"
   },
   {
-    "revision": "88761f16698657a27ed6",
+    "revision": "8c0a03735a28421c7e49",
     "url": "/xizhi/static/css/main.9a5c1625.chunk.css"
   },
   {
-    "revision": "268cad6d3dc76d86b120",
-    "url": "/xizhi/static/js/2.d2786c67.chunk.js"
+    "revision": "d2c4eaed02748c5774f2",
+    "url": "/xizhi/static/js/2.60389a57.chunk.js"
   },
   {
-    "revision": "88761f16698657a27ed6",
-    "url": "/xizhi/static/js/main.4959d999.chunk.js"
+    "revision": "8c0a03735a28421c7e49",
+    "url": "/xizhi/static/js/main.6efcdbfb.chunk.js"
   },
   {
     "revision": "fc472f3eda26615e7329",
