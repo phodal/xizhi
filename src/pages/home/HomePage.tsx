@@ -1,6 +1,7 @@
 import React from 'react';
-import {Editor, EditorState, RichUtils} from 'draft-js';
+import Draft, {Editor, EditorState, ContentState, RichUtils} from 'draft-js';
 import {StyleButton} from '../../components/Editor/StyleButton';
+import {POEM} from "../../commons/constants/poem";
 
 const BLOCK_TYPES = [
   {label: 'H1', style: 'header-one'},
@@ -60,7 +61,9 @@ class HomePage extends React.Component <{}, any> {
   constructor(props: any) {
     super(props);
     this.state = {
-      editorState: EditorState.createEmpty()
+      editorState: EditorState.createWithContent(
+        ContentState.createFromText(POEM)
+      )
     };
   }
 
@@ -115,14 +118,16 @@ class HomePage extends React.Component <{}, any> {
 
     return (
       <div className="RichEditor-root">
-        <InlineStyleControls
-          editorState={editorState}
-          onToggle={this.toggleInlineStyle.bind(this)}
-        />
-        <BlockStyleControls
-          editorState={editorState}
-          onToggle={this.toggleBlockType.bind(this)}
-        />
+        <div className="xizhi-toolbar">
+          <InlineStyleControls
+            editorState={editorState}
+            onToggle={this.toggleInlineStyle.bind(this)}
+          />
+          <BlockStyleControls
+            editorState={editorState}
+            onToggle={this.toggleBlockType.bind(this)}
+          />
+        </div>
         <div className={className} onClick={this.focus}>
           <Editor
             editorState={editorState}
