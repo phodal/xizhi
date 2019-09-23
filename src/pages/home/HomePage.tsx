@@ -1,5 +1,5 @@
 import React from 'react';
-import Draft, {Editor, EditorState, ContentState, RichUtils} from 'draft-js';
+import {Editor, EditorState, ContentState, RichUtils, getDefaultKeyBinding} from 'draft-js';
 import {StyleButton} from '../../components/Editor/StyleButton';
 import {POEM} from "../../commons/constants/poem";
 import {XizhiSidebar} from '../../components/Editor/XizhiSidebar';
@@ -94,6 +94,19 @@ class HomePage extends React.Component <{}, any> {
     // return this.refs.editor.focus();
   };
 
+  mapKeyToEditorCommand(e: any) {
+    return getDefaultKeyBinding(e);
+  }
+
+  handleKeyCommand(command: any, editorState: EditorState) {
+    const newState = RichUtils.handleKeyCommand(editorState, command);
+    if (newState) {
+      this.onChange(newState);
+      return "handled";
+    }
+    return "not-handled";
+  }
+
   getBlockStyle(block: any) {
     switch (block.getType()) {
       case 'blockquote':
@@ -133,6 +146,8 @@ class HomePage extends React.Component <{}, any> {
           <div className={className} onClick={this.focus}>
             <Editor
               editorState={editorState}
+              handleKeyCommand={this.handleKeyCommand.bind(this)}
+              keyBindingFn={this.mapKeyToEditorCommand.bind(this)}
               blockStyleFn={this.getBlockStyle.bind(this)}
               onChange={this.onChange}/>
           </div>
