@@ -12,6 +12,7 @@
     "axios": "latest",
     "babel-plugin-import": "^1.12.0",
     "customize-cra": "^0.5.0",
+    "draft-js": "^0.11.1",
     "gh-pages": "^2.1.1",
     "less": "^3.10.1",
     "less-loader": "^5.0.0",
@@ -50,6 +51,7 @@
     ]
   },
   "devDependencies": {
+    "@types/draft-js": "^0.10.35",
     "@types/lru-cache": "^5.1.0",
     "@types/react-router-dom": "^4.3.4"
   }
