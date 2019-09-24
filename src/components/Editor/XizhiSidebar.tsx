@@ -16,7 +16,8 @@ export class XizhiSidebar extends React.Component<any, any> {
   }
 
   getSplitWords(editorState: EditorState) {
-    return EditorHelper.countWord(editorState.getCurrentContent().getPlainText());
+    // return EditorHelper.countWord(editorState.getCurrentContent().getPlainText());
+    return [];
   }
 
   render() {
@@ -32,8 +33,10 @@ export class XizhiSidebar extends React.Component<any, any> {
 
     return (
       <div className="xizhi-sidebar">
-        <span>复杂度：{level}</span>
         <div className="stats">
+          <p className="complex">
+            复杂度：{level}
+          </p>
           <p className="counts">
             阅读时间：{this.getReadingTime(editorState)};
           </p>

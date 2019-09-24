@@ -1,18 +1,10 @@
 const Segmentit = require('segmentit');
 const cnchar = require('cnchar');
 
-let count = false;
-
 function countWord(content: string) {
-  if (count) {
-    return;
-  }
-  count = true;
-
   let segment = new Segmentit.Segment();
   const segmentit = Segmentit.useDefault(segment);
   const result = segmentit.doSegment(removeSpecialChar(content));
-  count = false;
   return result;
 }
 
