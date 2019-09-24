@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Menu, Icon} from 'antd';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import HomePage from '../../pages/home/HomePage';
 import AboutPage from "../../pages/about/AboutPage";
 import TodoPage from "../../pages/todo/TodoPage";

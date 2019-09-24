@@ -1,13 +1,9 @@
 import React from "react";
-import Draft, {EditorState} from "draft-js";
+import {EditorState} from "draft-js";
 
 import './XizhiSidebar.css';
 
 export class XizhiSidebar extends React.Component<any, any> {
-  constructor(props: any) {
-    super(props);
-  }
-
   getLineCount(editorState: EditorState) {
     const blockArray = editorState.getCurrentContent().getBlocksAsArray();
     return blockArray ? blockArray.length : null;
@@ -26,6 +22,7 @@ export class XizhiSidebar extends React.Component<any, any> {
       //先将回车换行符做特殊处理
       str = str.replace(/(\r\n+|\s+|　+)/g, "龘");
       //处理英文字符数字，连续字母、数字、英文符号视为一个单词
+      // eslint-disable-next-line no-control-regex
       str = str.replace(/[\x00-\xff]/g, "m");
       //合并字符m，连续字母、数字、英文符号视为一个单词
       str = str.replace(/m+/g, "*");
