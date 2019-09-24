@@ -40,7 +40,7 @@ export class XizhiSidebar extends React.Component<any, any> {
   render() {
     const editorState: EditorState = this.props.editorState;
 
-    EditorHelper.countWord(editorState.getCurrentContent().getPlainText());
+    let splitWords = EditorHelper.countWord(editorState.getCurrentContent().getPlainText());
 
     return (
       <div className="xizhi-sidebar">
@@ -51,6 +51,9 @@ export class XizhiSidebar extends React.Component<any, any> {
           </p>
           <p className="counts">
             字数：{this.getWordCount(editorState)};
+          </p>
+          <p className="words-counts">
+            字/词语数：{splitWords.length};
           </p>
           <p className="counts">
             行数：{this.getLineCount(editorState)};

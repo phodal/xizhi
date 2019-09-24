@@ -6,6 +6,7 @@ function countWord(content: string) {
   console.log(removeSpecialChar(content));
   const result = segmentit.doSegment(removeSpecialChar(content));
   console.log(result);
+  return result;
 }
 
 function removeSpecialChar(content: string) {
