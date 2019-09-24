@@ -1,7 +1,7 @@
 {
   "name": "react168",
   "version": "0.1.0",
-  "homepage": "https://phodal.github.io/xizhi/",
+  "homepage": "https://write.phodal.com",
   "private": true,
   "dependencies": {
     "@types/jest": "24.0.17",
