@@ -37,10 +37,15 @@ export class XizhiSidebar extends React.Component<any, any> {
     return sLen;
   }
 
+  getSplitWords(editorState: EditorState) {
+    return EditorHelper.countWord(editorState.getCurrentContent().getPlainText());
+  }
+
   render() {
     const editorState: EditorState = this.props.editorState;
 
-    let splitWords = EditorHelper.countWord(editorState.getCurrentContent().getPlainText());
+    let splitWords = this.getSplitWords(editorState);
+    // let splitWords = 'null';
 
     return (
       <div className="xizhi-sidebar">

@@ -145,6 +145,7 @@ class HomePage extends React.Component <{}, any> {
           </div>
           <div className={className} onClick={this.focus}>
             <Editor
+              readOnly={true}
               editorState={editorState}
               handleKeyCommand={this.handleKeyCommand.bind(this)}
               keyBindingFn={this.mapKeyToEditorCommand.bind(this)}
