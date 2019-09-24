@@ -2,6 +2,7 @@ import React from "react";
 import {EditorState} from "draft-js";
 
 import './XizhiSidebar.css';
+import EditorHelper from "../../commons/utils/editor.helper";
 
 export class XizhiSidebar extends React.Component<any, any> {
   getLineCount(editorState: EditorState) {
@@ -38,6 +39,9 @@ export class XizhiSidebar extends React.Component<any, any> {
 
   render() {
     const editorState: EditorState = this.props.editorState;
+
+    EditorHelper.countWord(editorState.getCurrentContent().getPlainText());
+
     return (
       <div className="xizhi-sidebar">
         <span>Toolbar</span>
