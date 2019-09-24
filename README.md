@@ -9,6 +9,10 @@ Todo:
  - words correct (low, hard & valueless)
  - ……
 
+## Refs
+
+ - [Fake Hemingway APP](https://github.com/SamWSoftware/Projects/blob/master/hemingway/index.js)
+
 License
 ---
 
