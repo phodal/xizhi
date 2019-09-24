@@ -25,8 +25,43 @@ function getSentences(content: string) {
   return sentences;
 }
 
+function getWordCount(str: string) {
+  // https://blog.csdn.net/gavid0124/article/details/38117381
+  let sLen = 0;
+  try {
+    //先将回车换行符做特殊处理
+    str = str.replace(/(\r\n+|\s+|　+)/g, "龘");
+    //处理英文字符数字，连续字母、数字、英文符号视为一个单词
+    // eslint-disable-next-line no-control-regex
+    str = str.replace(/[\x00-\xff]/g, "m");
+    //合并字符m，连续字母、数字、英文符号视为一个单词
+    str = str.replace(/m+/g, "*");
+    //去掉回车换行符
+    str = str.replace(/龘+/g, "");
+    //返回字数
+    sLen = str.length;
+  } catch (e) {
+    return 0;
+  }
+  return sLen;
+}
+
+function calculateLevel(letters: number, words: number, sentences: number) {
+  console.log(letters, words, sentences);
+  if (words === 0 || sentences === 0) {
+    return 0;
+  }
+  // https://www.webfx.com/tools/read-able/automated-readability-index.html
+  let level = Math.round(
+    4.71 * (letters / words) + 0.5 * words / sentences - 21.43
+  );
+  return level <= 0 ? 0 : level;
+}
+
 const EditorHelper = {
   countWord: countWord,
-  getSentences: getSentences
+  getWordCount: getWordCount,
+  getSentences: getSentences,
+  calculateLevel: calculateLevel
 };
 export default EditorHelper;
