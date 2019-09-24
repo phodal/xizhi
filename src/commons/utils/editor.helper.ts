@@ -1,11 +1,18 @@
 const Segmentit = require('segmentit');
+const cnchar = require('cnchar');
+
+let count = false;
 
 function countWord(content: string) {
+  if (count) {
+    return;
+  }
+  count = true;
+
   let segment = new Segmentit.Segment();
   const segmentit = Segmentit.useDefault(segment);
-  console.log(removeSpecialChar(content));
   const result = segmentit.doSegment(removeSpecialChar(content));
-  console.log(result);
+  count = false;
   return result;
 }
 
@@ -47,10 +54,12 @@ function getWordCount(str: string) {
 }
 
 function calculateLevel(letters: number, words: number, sentences: number) {
-  console.log(letters, words, sentences);
-  if (words === 0 || sentences === 0) {
+  if (letters === 0 || words === 0 || sentences === 0) {
     return 0;
   }
+  // 中文，来源：https://patents.google.com/patent/CN105630940A/zh
+  // 文本可读性=MX (NX中文平均笔画数+(1-N) X中文难词频度) + (1-Μ) X (PX英文平 均字符数+(1-P) X英文难词频度）
+  //
   // https://www.webfx.com/tools/read-able/automated-readability-index.html
   let level = Math.round(
     4.71 * (letters / words) + 0.5 * words / sentences - 21.43
@@ -58,10 +67,15 @@ function calculateLevel(letters: number, words: number, sentences: number) {
   return level <= 0 ? 0 : level;
 }
 
+function calculateStroke(letters: string) {
+  return cnchar.stroke(letters);
+}
+
 const EditorHelper = {
   countWord: countWord,
   getWordCount: getWordCount,
   getSentences: getSentences,
+  calculateStroke: calculateStroke,
   calculateLevel: calculateLevel
 };
 export default EditorHelper;

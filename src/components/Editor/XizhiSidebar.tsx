@@ -27,7 +27,8 @@ export class XizhiSidebar extends React.Component<any, any> {
     let splitSentences = EditorHelper.getSentences(plainText);
     // let splitWords = 'null';
     let wordCount = EditorHelper.getWordCount(plainText);
-    let level = EditorHelper.calculateLevel(wordCount, splitWords.length, splitSentences.length);
+    let strokesNumber = EditorHelper.calculateStroke(plainText);
+    let level = EditorHelper.calculateLevel(strokesNumber, splitWords.length, splitSentences.length);
 
     return (
       <div className="xizhi-sidebar">
