@@ -17,7 +17,16 @@ function removeSpecialChar(content: string) {
     .replace(othersSpecialChar, '');
 }
 
+function getSentences(content: string) {
+  let sentences = content
+    .split("。")
+    .filter(s => s.length > 0)
+    .map(s => s + "。");
+  return sentences;
+}
+
 const EditorHelper = {
-  countWord: countWord
+  countWord: countWord,
+  getSentences: getSentences
 };
 export default EditorHelper;
