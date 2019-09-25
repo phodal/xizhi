@@ -12,7 +12,9 @@ Todo:
 ## Refs
 
  - [Fake Hemingway APP](https://github.com/SamWSoftware/Projects/blob/master/hemingway/index.js)
-
+ - [write good](https://github.com/btford/write-good) is Naive linter for English prose for developers who can't write good and wanna learn to do other stuff good too.
+ - [Nodehun](https://github.com/nathanjsweet/nodehun) aims to expose as much of hunspell's functionality as possible in an easy to understand and maintainable way, while also maintaining the performance characteristics expected of a responsible node module.
+ 
 License
 ---
 
