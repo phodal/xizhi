@@ -127,8 +127,8 @@ class HomePage extends React.Component <{}, any> {
       let empty: SelectionState = Draft.SelectionState.createEmpty(lastBlockKey);
       empty.merge({
         anchorKey:lastBlock.getKey(),
-        anchorOffset: 8,
-        focusOffset: 12
+        anchorOffset: 1,
+        focusOffset: 100
       });
 
       let boldInline = Draft.Modifier.applyInlineStyle(blockArray, empty, 'BOLD');
