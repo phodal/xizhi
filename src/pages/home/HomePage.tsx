@@ -1,8 +1,10 @@
 import React from 'react';
-import {Editor, EditorState, ContentState, RichUtils, getDefaultKeyBinding} from 'draft-js';
+import Draft, {Editor, EditorState, SelectionState, ContentState, RichUtils, getDefaultKeyBinding} from 'draft-js';
+
 import {StyleButton} from '../../components/Editor/StyleButton';
 import {POEM} from "../../commons/constants/poem";
 import {XizhiSidebar} from '../../components/Editor/XizhiSidebar';
+import ContentHelper from "../../commons/utils/content.helper";
 
 const BLOCK_TYPES = [
   {label: 'H1', style: 'header-one'},
@@ -114,6 +116,43 @@ class HomePage extends React.Component <{}, any> {
       default:
         return '';
     }
+  }
+
+  updateBlock() {
+    let generateBlock = ContentHelper.contentBlock(POEM);
+    function formatStyle(blockArray: ContentState) {
+      let lastBlock = blockArray.getLastBlock();
+      let lastBlockKey = lastBlock.getKey();
+
+      let empty: SelectionState = Draft.SelectionState.createEmpty(lastBlockKey);
+      empty.merge({
+        anchorKey:lastBlock.getKey(),
+        anchorOffset: 8,
+        focusOffset: 12
+      });
+
+      let boldInline = Draft.Modifier.applyInlineStyle(blockArray, empty, 'BOLD');
+
+      empty.merge({
+        anchorKey:lastBlock.getKey(),
+        anchorOffset: 20,
+        focusOffset: 24
+      });
+      let finalStyle = Draft.Modifier.applyInlineStyle(boldInline, empty, 'ITALIC');
+      return finalStyle
+    }
+
+    let fromBlockArray = Draft.ContentState.createFromBlockArray(generateBlock);
+    let formatBlock = formatStyle(fromBlockArray);
+    let content = Draft.EditorState.createWithContent(formatBlock);
+
+    this.setState({
+      editorState: content
+    });
+  }
+
+  componentDidMount(): void {
+    this.updateBlock();
   }
 
   render() {
